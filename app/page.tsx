@@ -1,65 +1,100 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+      <section
+        aria-labelledby="hero-heading"
+        className="rounded-xl border border-border bg-surface p-6 sm:p-10"
+      >
+        <p className="mb-3 text-sm font-medium uppercase tracking-wide text-accent">
+          Frontend Developer Portfolio
+        </p>
+        <h1
+          id="hero-heading"
+          className="max-w-2xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl"
+        >
+          I build responsive and accessible React interfaces using tested
+          AI-assisted workflows.
+        </h1>
+        <p className="mt-4 max-w-xl text-lg text-muted">
+          Contact me for a frontend internship or junior developer opportunity.
+        </p>
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground hover:bg-accent-hover"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Contact me
+          </Link>
+          <Link
+            href="/projects"
+            className="inline-flex items-center justify-center rounded-lg border border-border bg-background px-6 py-3 text-sm font-semibold text-foreground hover:bg-muted-bg"
           >
-            Documentation
-          </a>
+            View projects
+          </Link>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section
+        aria-labelledby="intro-heading"
+        className="mt-12 max-w-3xl"
+      >
+        <h2 id="intro-heading" className="text-2xl font-semibold">
+          Introduction
+        </h2>
+        <p className="mt-4 text-muted leading-relaxed">
+          I am Ahmed Essam, an Information Systems student focused on frontend
+          development. I work with HTML, CSS, JavaScript, React, and Next.js to
+          create clear, user-friendly interfaces. This portfolio highlights
+          projects where I practice responsive layout, accessibility, and
+          structured AI-assisted development workflows.
+        </p>
+      </section>
+
+      <section
+        aria-labelledby="featured-heading"
+        className="mt-12"
+      >
+        <h2 id="featured-heading" className="text-2xl font-semibold">
+          Featured projects
+        </h2>
+        <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            {
+              name: "AI Task Manager",
+              description:
+                "A task management interface built with React and tested AI-assisted workflows.",
+            },
+            {
+              name: "FlyRank Settings Form",
+              description:
+                "A settings form focused on accessible inputs and responsive layout.",
+            },
+            {
+              name: "FlyRank Frontend Capstone",
+              description:
+                "A frontend capstone project demonstrating component structure and UI polish.",
+            },
+          ].map((project) => (
+            <li
+              key={project.name}
+              className="rounded-lg border border-border bg-surface p-5"
+            >
+              <h3 className="font-semibold">{project.name}</h3>
+              <p className="mt-2 text-sm text-muted">{project.description}</p>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-6">
+          <Link
+            href="/projects"
+            className="text-sm font-medium text-accent hover:text-accent-hover"
+          >
+            See all projects &rarr;
+          </Link>
+        </p>
+      </section>
+    </main>
   );
 }
