@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ahmed-frontend-portfolio.vercel.app"),
   title: {
     default: "Ahmed Essam | Frontend Developer",
     template: "%s | Ahmed Essam",
@@ -50,8 +51,20 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-background text-foreground">
+        <a
+          href="#main-content"
+          className="sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:not-sr-only focus:rounded-md focus:bg-surface focus:px-4 focus:py-3 focus:font-semibold focus:text-accent focus:shadow-lg"
+        >
+          Skip to main content
+        </a>
         <Header />
-        <div className="flex flex-1 flex-col">{children}</div>
+        <div
+          id="main-content"
+          tabIndex={-1}
+          className="flex flex-1 flex-col outline-none"
+        >
+          {children}
+        </div>
         <Footer />
       </body>
     </html>

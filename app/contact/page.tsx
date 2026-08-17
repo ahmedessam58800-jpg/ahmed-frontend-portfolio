@@ -9,21 +9,17 @@ export const metadata: Metadata = {
 const contactLinks = [
   {
     label: "Email",
-    value: "ahmed.essam@example.com",
-    href: "mailto:ahmed.essam@example.com",
-    description: "Send an email about internship or junior developer roles",
+    value: "ahmedessam58800@gmail.com",
+    href: "mailto:ahmedessam58800@gmail.com",
+    description: "Email Ahmed Essam about internship or junior developer roles",
+    external: false,
   },
   {
     label: "GitHub",
     value: "github.com/ahmedessam58800-jpg",
     href: "https://github.com/ahmedessam58800-jpg",
-    description: "View Ahmed Essam's GitHub profile (placeholder link)",
-  },
-  {
-    label: "LinkedIn",
-    value: "linkedin.com/in/ahmed-essam",
-    href: "https://linkedin.com/in/ahmed-essam",
-    description: "Connect with Ahmed Essam on LinkedIn (placeholder link)",
+    description: "Open Ahmed Essam's GitHub profile",
+    external: true,
   },
 ] as const;
 
@@ -34,7 +30,7 @@ export default function ContactPage() {
         <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
           Contact
         </h1>
-        <p className="mt-4 text-lg text-muted">
+        <p className="mt-4 text-lg leading-relaxed text-muted">
           I am actively seeking a frontend internship or junior developer
           opportunity. If you have a role, project, or mentorship opportunity,
           I would welcome a conversation.
@@ -48,13 +44,12 @@ export default function ContactPage() {
         <h2 id="contact-methods-heading" className="text-2xl font-semibold">
           Get in touch
         </h2>
-        <p className="mt-3 text-sm text-muted">
-          Reach out through any of the channels below. A contact form will be
-          added in a future update.
+        <p className="mt-3 text-sm leading-relaxed text-muted">
+          Use either verified contact method below.
         </p>
 
         <ul className="mt-6 space-y-4">
-          {contactLinks.map(({ label, value, href, description }) => (
+          {contactLinks.map(({ label, value, href, description, external }) => (
             <li
               key={label}
               className="rounded-lg border border-border bg-surface p-5"
@@ -64,7 +59,9 @@ export default function ContactPage() {
               </h3>
               <a
                 href={href}
-                className="mt-1 inline-block font-medium text-accent hover:text-accent-hover"
+                target={external ? "_blank" : undefined}
+                rel={external ? "noreferrer" : undefined}
+                className="mt-2 inline-flex min-h-11 max-w-full items-center break-all font-medium text-accent hover:text-accent-hover"
                 aria-label={description}
               >
                 {value}

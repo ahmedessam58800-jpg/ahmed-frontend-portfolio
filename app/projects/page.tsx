@@ -11,44 +11,46 @@ const projects = [
   {
     name: "AI Task Manager",
     description:
-      "A task management application with a React frontend for creating, organizing, and tracking tasks.",
+      "A React task manager for creating, completing, deleting, and filtering tasks with browser persistence.",
     technologies: ["React", "JavaScript", "CSS", "Git"],
-    repositoryUrl: "#ai-task-manager-repo",
-    livePreviewUrl: "#ai-task-manager-preview",
+    repositoryUrl: "https://github.com/ahmedessam58800-jpg/ai-task-manager",
+    availabilityNote:
+      "Public repository available. A standalone live demo is not claimed because this project has not been deployed.",
     responsiveEvidence:
-      "Layout adapts from mobile to desktop with flexible grids and readable spacing at 375px and 1280px.",
+      "The interface uses flexible layout patterns and spacing intended to remain readable from small screens through desktop widths.",
     accessibilityEvidence:
-      "Semantic HTML, visible focus states, and descriptive labels for interactive controls.",
+      "Accessibility was considered during implementation, but a formal keyboard and screen-reader audit is not claimed.",
     aiWorkflowEvidence:
-      "Built using a structured AI-assisted workflow with review checkpoints for UI and accessibility.",
+      "An AI-assisted review identified a malformed localStorage failure case; the stored-data validation was then tightened and the main flows were rechecked.",
   },
   {
     name: "FlyRank Settings Form",
     description:
-      "A settings form interface with grouped inputs, validation feedback, and clear section hierarchy.",
-    technologies: ["HTML", "CSS", "JavaScript", "React"],
-    repositoryUrl: "#flyrank-settings-repo",
-    livePreviewUrl: "#flyrank-settings-preview",
+      "A controlled prompt-comparison exercise that builds the same settings form from a vague prompt and a detailed prompt.",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    availabilityNote:
+      "The comparison was built on independent development branches and is not presented here as a deployed public demo.",
     responsiveEvidence:
-      "Form fields stack on small screens and align in columns on wider viewports.",
+      "The detailed prompt explicitly defined responsive behavior so the form could stack cleanly on smaller screens.",
     accessibilityEvidence:
-      "Inputs are associated with labels, errors are announced in text, and keyboard navigation is supported.",
+      "Labels and accessibility requirements were included in the implementation brief; formal assistive-technology verification is still pending.",
     aiWorkflowEvidence:
-      "Component structure and accessibility checks were refined through iterative AI-assisted reviews.",
+      "The exercise demonstrates how clearer constraints reduced unrequested scope and made the output easier to review against acceptance criteria.",
   },
   {
     name: "FlyRank Frontend Capstone",
     description:
-      "A frontend capstone project combining multiple UI patterns into a cohesive, navigable interface.",
-    technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
-    repositoryUrl: "#flyrank-capstone-repo",
-    livePreviewUrl: "#flyrank-capstone-preview",
+      "A frontend capstone repository documenting the final FlyRank project and its implementation evidence.",
+    technologies: ["Frontend", "Git", "AI-assisted workflow"],
+    repositoryUrl: "https://github.com/ahmedessam58800-jpg/flyrank-capstone",
+    availabilityNote:
+      "Public repository available. No separate live preview is shown unless a deployed demo exists.",
     responsiveEvidence:
-      "Navigation, cards, and content sections reflow cleanly across common breakpoints.",
+      "The portfolio presents the capstone inside a single-column card layout that avoids horizontal overflow on narrow screens.",
     accessibilityEvidence:
-      "Landmark regions, heading hierarchy, and link text are written for screen reader clarity.",
+      "The portfolio uses semantic headings, visible focus states, and descriptive link labels for this project entry.",
     aiWorkflowEvidence:
-      "Used AI-assisted planning for component breakdown and manual verification of each UI section.",
+      "The capstone records a structured AI-assisted development process with human review checkpoints.",
   },
 ] as const;
 
@@ -59,13 +61,14 @@ export default function ProjectsPage() {
         <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
           Projects
         </h1>
-        <p className="mt-4 text-lg text-muted">
+        <p className="mt-4 text-lg leading-relaxed text-muted">
           Selected frontend work demonstrating responsive layout, accessibility
-          practices, and structured development workflows.
+          awareness, and structured development workflows. Public links are
+          shown only where a real repository or deployment exists.
         </p>
       </header>
 
-      <div className="mt-10 grid gap-6 lg:grid-cols-1">
+      <div className="mt-10 grid gap-6">
         {projects.map((project) => (
           <ProjectCard key={project.name} {...project} />
         ))}
